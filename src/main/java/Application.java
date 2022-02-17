@@ -16,7 +16,7 @@ public class Application {
         //Котики разговаривают одинаково?
         System.out.println(compareVoice(fiska, zigi));
         //Количество созданных котиков
-        System.out.println(zigi.getCount());
+        System.out.println(Kotik.getCount());
     }
 
     static boolean compareVoice( Kotik first, Kotik second) {
