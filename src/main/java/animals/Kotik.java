@@ -9,7 +9,7 @@ public class Kotik {
     private static int count = 0;
     private static final int METHODS = 5;
 
-    public int getCount() {
+    public static int getCount() {
         return count;
     }
 
