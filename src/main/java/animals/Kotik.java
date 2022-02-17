@@ -134,7 +134,7 @@ public class Kotik {
     }
 
 
-    //вщзвращает массив действий
+    //возвращает массив действий
     public String[] liveAnotherDay() {
         String[] action = new String[24];
 
