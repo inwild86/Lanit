@@ -1,26 +1,26 @@
 package animals;
 
-public class Kotik extends Carnivorous  implements Voice, Run{
+public class Bear extends Carnivorous implements Voice, Run{
 
-    public Kotik(String name) {
+    public Bear(String name) {
         this.name = name;
     }
     @Override
     public void run() {
         if (hunger <= 0){
-            System.out.println(getName() + "он хочет есть");
+            System.out.println(getName() + "хочет есть");
         } else {
             hunger --;
             System.out.println(getName() + " бежит");
         }
     }
     @Override
-    public String getVoice(){
+   public String getVoice(){
         if (hunger  <= 0) {
             return getNameAnimal() + " хочет есть";
         } else {
             hunger--;
-            return getNameAnimal() + " мяу";
+            return getNameAnimal() + "РРРР";
         }
     }
 
