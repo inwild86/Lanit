@@ -4,7 +4,7 @@ import food.*;
 public abstract  class Animal {
  String name;
     protected int satiety;
-    public int hunger = satiety;
+    public int hunger;
 
     public abstract void eat(Food food);
 
