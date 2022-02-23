@@ -45,16 +45,13 @@ public class Zoo {
 
     //создаем массив животных из пруда
     public static Swim[] createPond() {
-        Duck duck = new Duck("Утя");
-        Fish fish = new Fish("РЫба");
-        Snake snake = new Snake("Змейка");
-        Swim[] mas = new Swim[3];
+        Swim[] pond = {
+                new Duck("Утя"),
+                new Fish("РЫба"),
+                new Snake("Змейка")
+        };
+        return pond;
 
-        GrupAnimal<Swim> pond = new GrupAnimal<>(mas);
-        pond.add(0, duck);
-        pond.add(1, fish);
-
-        return pond.getArr();
     }
 
     /*
