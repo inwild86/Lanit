@@ -1,5 +1,4 @@
 package animals;
-import animals.*;
 import food.*;
 public abstract class Carnivorous extends Animal {
 
@@ -8,16 +7,16 @@ public abstract class Carnivorous extends Animal {
     }
 
 
-  //  @Override
+    @Override
     public void  eat(Food food) throws WrongFoodException{
         try{
             //проверяет, что бы тип еды был Meat
             if (food instanceof Meat)
-                throw new WrongFoodException ("Ошибочка!", food);
+                throw new WrongFoodException ("Ошибка, не та еда", food);
             this.setSatiety(food.getEnergy());
             System.out.println("Поел: " + food.getClass().getSimpleName());
         } catch (WrongFoodException e){
-            System.out.println(e + " Еда не подходит для данного животного. Хищники не любят траву");
+            System.out.println(e + "  плотоядное животное не будет есть траву");
         }
         }
 

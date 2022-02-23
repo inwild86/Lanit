@@ -12,7 +12,7 @@ public abstract class Herbivore extends Animal {
     public void eat(Food food) throws WrongFoodException{
         try{//проверяет, что бы тип еды был Grass
             if (food instanceof Grass)
-                throw new WrongFoodException("Ошибка, не та еда!", food);
+                throw new WrongFoodException("Ошибка, не та еда", food);
             this.setSatiety(food.getEnergy());
             System.out.println("Поел: " + food.getClass().getSimpleName());
 
