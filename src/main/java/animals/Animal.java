@@ -11,9 +11,7 @@ public abstract  class Animal {
         this.name = name;
     }
     public abstract void eat(Food food) throws WrongFoodException;
-
     //public abstract String getNameAnimal();
-
     public String getName() {
         return name;
     }
@@ -25,7 +23,6 @@ public abstract  class Animal {
         return satiety;
     }
     public abstract Size getSize();
-    //добавляется количество сытосли к существующему
     public void setSatiety(int satiety) {
         this.satiety += satiety;
     }

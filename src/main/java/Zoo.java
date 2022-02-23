@@ -20,6 +20,10 @@ public class Zoo {
 
         Meat meat = new Meat("Окорочок");
         Grass grass = new Grass("Зелень");
+        Swim[] pond = createPond();
+        for (Swim i : pond) {
+            i.swim();
+        }
 
         worker.getVoice(duck);
         worker.feed(duck, meat);
@@ -30,10 +34,6 @@ public class Zoo {
         worker.getVoice(kotik);
         worker.feed(kotik, meat);
 
-        Swim[] pond = createPond();
-        for (Swim i : pond) {
-            i.swim();
-        }
 
         fillCarnivorousAviary();
         System.out.println(getCarnivorous("fish"));
@@ -55,8 +55,7 @@ public class Zoo {
     }
 
     /*
-    создает обьекты животных Хищники для вальера carnivorousAviary
-    и пытается добавить их в вальер
+    создает обьекты животных Хищники для вальера carnivorousAviary и добавляет в вольер
     */
     private static void fillCarnivorousAviary() {
         Fish fish = new Fish("fish");
@@ -66,8 +65,7 @@ public class Zoo {
     }
 
     /*
-         создает обьекты животных Травоядные для вальера herbivoreAviary
-        и пытается добавить их в вальер
+         создает обьекты животных Травоядные для вальера herbivoreAviary и добавляет в вольер
         */
     private static void fillHerbivoreAviary() {
         Duck duck = new Duck("Утка");
