@@ -1,10 +1,9 @@
 package model;
 
 public class WrongSizeException extends RuntimeException{
-    private Size size;
 
-    public WrongSizeException( String message, Size num) {
+    public WrongSizeException( String message) {
         super(message);
-        size = num;
+
     }
 }

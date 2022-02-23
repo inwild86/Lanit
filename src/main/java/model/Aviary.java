@@ -19,7 +19,7 @@ public class Aviary <T extends Animal>{
         if (animal.getSize().equals(size)) {
             aviaryMap.put(animal.getName(), animal);
         } else{
-            throw new WrongSizeException(" животного размер не совпадает с размером вальера", animal.getSize());
+            throw new WrongSizeException(" животного размер не совпадает с размером вальера");
         }
     }
 

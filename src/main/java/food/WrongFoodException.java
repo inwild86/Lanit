@@ -1,10 +1,9 @@
 package food;
 
 public class WrongFoodException extends Exception{
-    private Food food;
 
-    public WrongFoodException(String message, Food num){
+    public WrongFoodException(String message){
         super(message);
-        food = num;
+
     }
 }
