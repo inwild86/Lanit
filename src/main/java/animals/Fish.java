@@ -1,30 +1,26 @@
 package animals;
 
-public class Fish extends Herbivore  implements Swim{
+import model.*;
+
+public class Fish extends Herbivore implements Swim {
     public Fish(String name) {
-        this.name = name;
-    }
-    public Fish() {
-
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        super(name);
     }
 
     @Override
     public void swim() {
-        if (hunger <= 0){
+        if (hunger <= 0) {
             System.out.println(getName() + "хочет есть");
         } else {
-            hunger --;
+            hunger--;
             System.out.println(getName() + " плавает");
         }
     }
 
     @Override
-    public String getNameAnimal() {
-        return getName();
+    public Size getSize() {
+        Size s = Size.MEDIUM;
+        return s;
     }
 
 }

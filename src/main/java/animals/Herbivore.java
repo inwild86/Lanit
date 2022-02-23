@@ -1,11 +1,26 @@
 package animals;
 import food.*;
-import employee.*;
+
 
 public abstract class Herbivore extends Animal {
 
+    Herbivore(String name) {
+        super(name);
+    }
+
     @Override
-    public void eat(Food food) {
+    public void eat(Food food) throws WrongFoodException{
+        try{//проверяет, что бы тип еды был Grass
+            if (food instanceof Grass)
+                throw new WrongFoodException("Ошибка, не та еда!", food);
+            this.setSatiety(food.getEnergy());
+            System.out.println("Поел: " + food.getClass().getSimpleName());
+
+    }catch (WrongFoodException e) {
+            System.out.println(e + " травоядное животное, не ест мясо");
+        }
+}}
+ /*   public void eat(Food food) {
         if (food instanceof Grass){
             if(hunger < 2) {
                 hunger += getSatiety();
@@ -19,5 +34,4 @@ public abstract class Herbivore extends Animal {
             System.out.println(getNameAnimal() + " травоядное животное, не ест мясо");
         }
 
-    }
-}
+    }*/

@@ -1,14 +1,12 @@
 package animals;
+import model.*;
 
 public class Snake extends Carnivorous  implements Voice, Swim{
 
     public Snake(String name) {
-        this.name = name;
+        super (name);
     }
 
-    public  Snake(){
-
-    }
     @Override
     public void swim() {
         if (hunger <= 0){
@@ -22,19 +20,17 @@ public class Snake extends Carnivorous  implements Voice, Swim{
     @Override
     public String getVoice(){
         if (hunger  <= 0) {
-            return getNameAnimal() + " хочет есть";
+            return getName() + " хочет есть";
         } else {
             hunger--;
-            return getNameAnimal() + " CCCCCCCC";
+            return getName() + " CCCCCCCC";
         }
     }
 
-    public String getNameAnimal() {
-        return getName();
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    @Override
+    public Size getSize() {
+        Size s = Size.SMALL;
+        return s;
 
-}
+}}

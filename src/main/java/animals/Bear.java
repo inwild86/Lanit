@@ -1,9 +1,10 @@
 package animals;
+import model.*;
 
 public class Bear extends Carnivorous implements Voice, Run{
 
     public Bear(String name) {
-        this.name = name;
+        super (name);
     }
     @Override
     public void run() {
@@ -17,19 +18,23 @@ public class Bear extends Carnivorous implements Voice, Run{
     @Override
    public String getVoice(){
         if (hunger  <= 0) {
-            return getNameAnimal() + " хочет есть";
+            return getName() + " хочет есть";
         } else {
             hunger--;
-            return getNameAnimal() + "РРРР";
+            return getName() + "РРРР";
         }
     }
 
-    public String getNameAnimal() {
+  /*  public String getNameAnimal() {
         return getName();
-    }
+    }*/
 
     public void setName(String name) {
         this.name = name;
     }
-
+    @Override
+    public Size getSize() {
+        Size s = Size.MEDIUM;
+        return s;
+    }
 }

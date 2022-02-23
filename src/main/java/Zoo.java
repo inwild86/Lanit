@@ -1,15 +1,23 @@
 import employee.*;
 import animals.*;
 import food.*;
+import  model.*;
 
 public class Zoo {
-    public static void main(String[] args) {
-        Bear bear = new Bear("Мишка");
+
+    //вальеры
+    private static Aviary<Carnivorous> carnivorousAviary = new Aviary(Size.MEDIUM);
+    private static Aviary<Herbivore> herbivoreAviary = new Aviary(Size.SMALL);
+
+
+
+    public static void main(String[] args) throws WrongFoodException{
+       Bear bear = new Bear("Мишка");
         Duck duck = new Duck("Скрудж дак");
         Fish fish = new Fish("Рыба");
         Kotik kotik = new Kotik("Котя");
         Puma puma = new Puma("Пума");
-        Snake snake = new Snake("Змеюка");
+       Snake snake = new Snake("Змеюка");
 
         Worker worker = new Worker();
 
@@ -29,15 +37,63 @@ public class Zoo {
         for (Swim i : pond) {
            i.swim();
         }
-    }
 
+        fillCarnivorousAviary();
+        System.out.println(getCarnivorous("fish1"));
+
+        fillHerbivoreAviary();
+        System.out.println(getHerbivore("duck").toString());
+
+    }
+     //создаем массив животных из пруда
     public static Swim[] createPond() {
-        Swim[] pond = {
-              new Duck("Утя"),
-                new Fish("РЫба"),
-              new Snake("Змейка")
-        };
+        Duck duck=new Duck("Утя");
+        Fish fish=new Fish("РЫба");
+        Snake snake =new Snake("Змейка");
+        Swim[] mas = new Swim[3];
 
-        return pond;
+         GrupAnimal<Swim> pond = new GrupAnimal<>(mas);
+        pond.add(0, duck);
+        pond.add(1,fish);
+
+        return pond.getArr();
     }
+    /*
+    создает обьекты животных Хищники для вальера carnivorousAviary
+    и пытается добавить их в вальер
+    */
+    private static void fillCarnivorousAviary() {
+        Fish fish1 = new Fish("fish1");
+        Kotik kot1 = new Kotik("kot1");
+        carnivorousAviary.addAnimal(kot1);
+
+
+    }
+    /*
+         создает обьекты животных Травоядные для вальера herbivoreAviary
+        и пытается добавить их в вальер
+        */
+    private static void fillHerbivoreAviary() {
+        Duck duck1 = new Duck("duck");
+        Snake snake1 = new Snake("Змея");
+        herbivoreAviary.addAnimal(duck1);
+        //herbivoreAviary.addAnimal(snake1);
+    }
+    /*
+       принимает хначение имени животного и возвращает экземпляр класса Carnivorous из коллекции carnivorousAviary,
+      хранящийся в вальере carnivorousAviary
+      */
+    private static Carnivorous getCarnivorous( String name) {
+        Carnivorous c = carnivorousAviary.getAnimal(name);
+        return c;
+    }
+    /*
+     принимает значение имени животного и возвращает экземпляр класса Herbivore из коллекции herbivoreAviary,
+    хранящийся в вальере carnivorousAviary
+    */
+    private static Herbivore getHerbivore(String name) {
+        Herbivore h = herbivoreAviary.getAnimal(name);
+        return h;
+    }
+
 }

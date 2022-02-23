@@ -3,8 +3,26 @@ import animals.*;
 import food.*;
 public abstract class Carnivorous extends Animal {
 
-    @Override
-    public void  eat(Food food) {
+    Carnivorous(String name) {
+        super(name);
+    }
+
+
+  //  @Override
+    public void  eat(Food food) throws WrongFoodException{
+        try{
+            //проверяет, что бы тип еды был Meat
+            if (food instanceof Meat)
+                throw new WrongFoodException ("Ошибочка!", food);
+            this.setSatiety(food.getEnergy());
+            System.out.println("Поел: " + food.getClass().getSimpleName());
+        } catch (WrongFoodException e){
+            System.out.println(e + " Еда не подходит для данного животного. Хищники не любят траву");
+        }
+        }
+
+
+        /*
         if (food instanceof Meat){
             if(hunger < 2) {
                 hunger += getSatiety();
@@ -18,7 +36,5 @@ public abstract class Carnivorous extends Animal {
             System.out.println(getNameAnimal() + " плотоядное животное не будет есть траву");
         }
 
-    }
-
-
+    }*/
 }
