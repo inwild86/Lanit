@@ -1,8 +1,10 @@
 package animals;
 
+import model.Size;
+
 public class Puma extends Carnivorous  implements Voice, Run{
     public Puma(String name) {
-        this.name = name;
+        super (name);
     }
     @Override
     public void run() {
@@ -23,12 +25,16 @@ public class Puma extends Carnivorous  implements Voice, Run{
         }
     }
 
-    public String getNameAnimal() {
+  /*  public String getNameAnimal() {
         return getName();
-    }
+    }*/
 
     public void setName(String name) {
         this.name = name;
     }
-
+    @Override
+    public Size getSize() {
+        Size s = Size.MEDIUM;
+        return s;
+    }
 }
